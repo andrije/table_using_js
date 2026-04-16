@@ -195,11 +195,9 @@ removeBtn.onclick = function () {
     })
   }
 
-  if (classesFilter > classes.length / 2) {
-    removeBtnForEach(false, '+')
-  } else {
-    removeBtnForEach(true, '-')
-  }
+  classesFilter > classes.length / 2
+    ? removeBtnForEach(false, '+')
+    : removeBtnForEach(true, '-')
   render()
 }
 
