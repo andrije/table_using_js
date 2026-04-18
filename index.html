@@ -7,18 +7,22 @@
     <script src="app.js" defer></script>
   </head>
   <body>
-    <table>
-      <thead>
-        <tr>
-          <th id="class-name">Class name</th>
-          <th id="type">Type</th>
-          <th id="hours">Hours</th>
-          <th id="trainer">Trainer</th>
-          <th id="spots">Spots</th>
-          <th id="spots"><button id="remove">+</button></th>
-        </tr>
-      </thead>
-      <tbody id="table"></tbody>
-    </table>
+    <button id="add">Добавить</button>
+    <button id="delete">Удалить</button>
+    <div id="tableContainer">
+      <table>
+        <thead id="tableHead">
+          <tr>
+            <th id="class-name">Class name</th>
+            <th id="type">Type</th>
+            <th id="hours">Hours</th>
+            <th id="trainer">Trainer</th>
+            <th id="spots">Spots</th>
+            <th id="spots"><button id="remove">+</button></th>
+          </tr>
+        </thead>
+        <tbody id="table"></tbody>
+      </table>
+    </div>
   </body>
 </html>

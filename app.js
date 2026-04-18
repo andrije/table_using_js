@@ -1,7 +1,11 @@
 const tableElement = document.getElementById('table')
 const removeBtn = document.getElementById('remove')
+const addBtn = document.getElementById('add')
+const deleteBtn = document.getElementById('delete')
+const tableHead = document.getElementById('tableHead')
+const tableContainer = document.getElementById('tableContainer')
 
-const classes = [
+let classes = [
   {
     title: 'Like a butterfly',
     category: 'Boxing',
@@ -182,6 +186,34 @@ const classes = [
   },
 ]
 
+addBtn.onclick = function () {
+  const addNewRow = prompt('Введите элементы нового ряда таблицы через запятую')
+  const newRowContent = addNewRow.split(/,\s*/)
+
+  if (newRowContent.length != 5) {
+    alert(
+      'Убедитесь, что вы ввели все корректно. Кол-во элементов нового ряда должно быть равно 5',
+    )
+  } else {
+    const newRowObject = {
+      title: newRowContent[0],
+      category: newRowContent[1],
+      time: newRowContent[2],
+      instructor: newRowContent[3],
+      capacity: newRowContent[4],
+      settings: [false, '+'],
+    }
+    classes.push(newRowObject)
+
+    render()
+  }
+}
+
+deleteBtn.onclick = function () {
+  classes = classes.filter((item) => item.settings[0] !== true)
+  render()
+}
+
 removeBtn.onclick = function () {
   const classesFilter = classes.filter(
     (item) => item.settings[0] === true,
@@ -217,6 +249,19 @@ function render() {
       'beforeend',
       getTemplate(classes[i], i, classes[i].settings[1]),
     )
+  }
+  let empty = document.getElementById('empty')
+  if (classes.length == 0) {
+    tableHead.style.display = 'none'
+    if (!empty) {
+      empty = document.createElement('p')
+      empty.id = 'empty'
+      empty.textContent = 'Таблица пуста'
+      tableContainer.prepend(empty)
+    }
+  } else {
+    if (empty) empty.remove()
+    tableHead.style.display = ''
   }
 }
 
