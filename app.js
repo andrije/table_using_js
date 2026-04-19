@@ -4,6 +4,7 @@ const addBtn = document.getElementById('add')
 const deleteBtn = document.getElementById('delete')
 const tableHead = document.getElementById('tableHead')
 const tableContainer = document.getElementById('tableContainer')
+const funBtn = document.getElementById('fun')
 
 let classes = [
   {
@@ -12,7 +13,7 @@ let classes = [
     time: '9:00 AM - 11:00 AM',
     instructor: 'Aaron Chapman',
     capacity: 10,
-    settings: [false, '+'],
+    settings: [false, '+', false],
   },
   {
     title: 'Mind & Body',
@@ -20,7 +21,7 @@ let classes = [
     time: '8:00 AM - 9:00 AM',
     instructor: 'Adam Stewart',
     capacity: 15,
-    settings: [false, '+'],
+    settings: [false, '+', false],
   },
   {
     title: 'Crit Cardio',
@@ -28,7 +29,7 @@ let classes = [
     time: '9:00 AM - 10:00 AM',
     instructor: 'Aaron Chapman',
     capacity: 10,
-    settings: [false, '+'],
+    settings: [false, '+', false],
   },
   {
     title: 'Wheel Pose Full Posture',
@@ -36,7 +37,7 @@ let classes = [
     time: '7:00 AM - 8:30 AM',
     instructor: 'Donna Wilson',
     capacity: 15,
-    settings: [false, '+'],
+    settings: [false, '+', false],
   },
   {
     title: "Playful Dancer's Flow",
@@ -44,7 +45,7 @@ let classes = [
     time: '8:00 AM - 9:00 AM',
     instructor: 'Donna Wilson',
     capacity: 10,
-    settings: [false, '+'],
+    settings: [false, '+', false],
   },
   {
     title: 'Zumba Dance',
@@ -52,7 +53,7 @@ let classes = [
     time: '5:00 PM - 7:00 PM',
     instructor: 'Donna Wilson',
     capacity: 20,
-    settings: [false, '+'],
+    settings: [false, '+', false],
   },
   {
     title: 'Cardio Blast',
@@ -60,7 +61,7 @@ let classes = [
     time: '5:00 PM - 7:00 PM',
     instructor: 'Randy Porter',
     capacity: 10,
-    settings: [false, '+'],
+    settings: [false, '+', false],
   },
   {
     title: 'Pilates Reformer',
@@ -68,7 +69,7 @@ let classes = [
     time: '8:00 AM - 9:00 AM',
     instructor: 'Randy Porter',
     capacity: 10,
-    settings: [false, '+'],
+    settings: [false, '+', false],
   },
   {
     title: 'Supple Spine and Shoulders',
@@ -76,7 +77,7 @@ let classes = [
     time: '6:30 AM - 8:00 AM',
     instructor: 'Randy Porter',
     capacity: 15,
-    settings: [false, '+'],
+    settings: [false, '+', false],
   },
   {
     title: 'Yoga for Divas',
@@ -84,7 +85,7 @@ let classes = [
     time: '9:00 AM - 11:00 AM',
     instructor: 'Donna Wilson',
     capacity: 20,
-    settings: [false, '+'],
+    settings: [false, '+', false],
   },
   {
     title: 'Virtual Cycle',
@@ -92,7 +93,7 @@ let classes = [
     time: '8:00 AM - 9:00 AM',
     instructor: 'Randy Porter',
     capacity: 20,
-    settings: [false, '+'],
+    settings: [false, '+', false],
   },
 
   // repeated entries
@@ -102,7 +103,7 @@ let classes = [
     time: '9:00 AM - 11:00 AM',
     instructor: 'Aaron Chapman',
     capacity: 10,
-    settings: [false, '+'],
+    settings: [false, '+', false],
   },
   {
     title: 'Mind & Body',
@@ -110,7 +111,7 @@ let classes = [
     time: '8:00 AM - 9:00 AM',
     instructor: 'Adam Stewart',
     capacity: 15,
-    settings: [false, '+'],
+    settings: [false, '+', false],
   },
   {
     title: 'Crit Cardio',
@@ -118,7 +119,7 @@ let classes = [
     time: '9:00 AM - 10:00 AM',
     instructor: 'Aaron Chapman',
     capacity: 10,
-    settings: [false, '+'],
+    settings: [false, '+', false],
   },
   {
     title: 'Wheel Pose Full Posture',
@@ -126,7 +127,7 @@ let classes = [
     time: '7:00 AM - 8:30 AM',
     instructor: 'Donna Wilson',
     capacity: 15,
-    settings: [false, '+'],
+    settings: [false, '+', false],
   },
   {
     title: "Playful Dancer's Flow",
@@ -134,7 +135,7 @@ let classes = [
     time: '8:00 AM - 9:00 AM',
     instructor: 'Donna Wilson',
     capacity: 10,
-    settings: [false, '+'],
+    settings: [false, '+', false],
   },
   {
     title: 'Zumba Dance',
@@ -142,7 +143,7 @@ let classes = [
     time: '5:00 PM - 7:00 PM',
     instructor: 'Donna Wilson',
     capacity: 20,
-    settings: [false, '+'],
+    settings: [false, '+', false],
   },
   {
     title: 'Cardio Blast',
@@ -150,7 +151,7 @@ let classes = [
     time: '5:00 PM - 7:00 PM',
     instructor: 'Randy Porter',
     capacity: 10,
-    settings: [false, '+'],
+    settings: [false, '+', false],
   },
   {
     title: 'Pilates Reformer',
@@ -158,7 +159,7 @@ let classes = [
     time: '8:00 AM - 9:00 AM',
     instructor: 'Randy Porter',
     capacity: 10,
-    settings: [false, '+'],
+    settings: [false, '+', false],
   },
   {
     title: 'Supple Spine and Shoulders',
@@ -166,7 +167,7 @@ let classes = [
     time: '6:30 AM - 8:00 AM',
     instructor: 'Randy Porter',
     capacity: 15,
-    settings: [false, '+'],
+    settings: [false, '+', false],
   },
   {
     title: 'Yoga for Divas',
@@ -174,7 +175,7 @@ let classes = [
     time: '9:00 AM - 11:00 AM',
     instructor: 'Donna Wilson',
     capacity: 20,
-    settings: [false, '+'],
+    settings: [false, '+', false],
   },
   {
     title: 'Virtual Cycle',
@@ -182,7 +183,7 @@ let classes = [
     time: '8:00 AM - 9:00 AM',
     instructor: 'Randy Porter',
     capacity: 20,
-    settings: [false, '+'],
+    settings: [false, '+', false],
   },
 ]
 
@@ -212,7 +213,7 @@ addBtn.onclick = function () {
 }
 
 deleteBtn.onclick = function () {
-  if (classes.filter((item) => item.settings[0] !== false) == 0) {
+  if (classes.filter((item) => item.settings[0] !== false).length == 0) {
     alert('Ни один элемент не выбран')
   } else {
     classes = classes.filter((item) => item.settings[0] !== true)
@@ -234,15 +235,39 @@ removeBtn.onclick = function () {
   }
 
   classesFilter > classes.length / 2
-    ? removeBtnForEach(false, '+')
+    ? (removeBtnForEach(false, '+'),
+      classes.forEach((item) => (item.settings[2] = false)))
     : removeBtnForEach(true, '-')
   render()
 }
 
+funBtn.onclick = function () {
+  if (
+    classes.filter((item) => item.settings[2] !== false).length ==
+    classes.filter((item) => item.settings[0] !== false).length
+  ) {
+    for (let i = 0; i < classes.length; i++) {
+      classes[i].settings[2] = false
+    }
+  } else {
+    for (let i = 0; i < classes.length; i++) {
+      if (classes[i].settings[0] && !classes[i].settings[2]) {
+        classes[i].settings[2] = true
+      }
+    }
+  }
+  render()
+}
+
 function bgColor(index) {
-  if (index % 2 === 0 && !classes[index].settings[0]) {
+  const settings0 = classes[index].settings[0]
+  const settings2 = classes[index].settings[2]
+
+  if (index % 2 === 0 && !settings0) {
     return '#f8f7ff'
-  } else if (classes[index].settings[0]) {
+  } else if (settings2 && settings0) {
+    return 'red'
+  } else if (settings0) {
     return 'rgb(252, 249, 82)'
   }
   return 'white'
@@ -282,6 +307,7 @@ tableElement.onclick = function (event) {
   if (type === 'btn' && classes[index].settings[0]) {
     classes[index].settings[0] = false
     classes[index].settings[1] = '+'
+    classes[index].settings[2] = false
   } else if (type === 'btn' && !classes[index].settings[0]) {
     classes[index].settings[0] = true
     classes[index].settings[1] = '-'
