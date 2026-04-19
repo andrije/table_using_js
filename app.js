@@ -204,14 +204,20 @@ addBtn.onclick = function () {
       settings: [false, '+'],
     }
     classes.push(newRowObject)
-
+    if (classes.length == 1) {
+      removeBtn.textContent = '+'
+    }
     render()
   }
 }
 
 deleteBtn.onclick = function () {
-  classes = classes.filter((item) => item.settings[0] !== true)
-  render()
+  if (classes.filter((item) => item.settings[0] !== false) == 0) {
+    alert('Ни один элемент не выбран')
+  } else {
+    classes = classes.filter((item) => item.settings[0] !== true)
+    render()
+  }
 }
 
 removeBtn.onclick = function () {
